@@ -1,0 +1,3 @@
+<!ELEMENT User (Name, Age)>
+<!ELEMENT Age (#PCDATA)>
+<!ELEMENT Name (#PCDATA)>
