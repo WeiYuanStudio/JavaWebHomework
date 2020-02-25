@@ -1,0 +1,24 @@
+#title {
+    font-family: Arial;
+    text-align: center;
+}
+
+#note {
+    width: 500px;
+    margin: auto;
+}
+
+#main-frame {
+    width: 600px;
+    margin: auto;
+}
+
+#main-frame li {
+    list-style: none;
+    padding: 20px;
+    border: solid 1px gray;
+    border-radius: 20px;
+    margin: 10px;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2)
+}
