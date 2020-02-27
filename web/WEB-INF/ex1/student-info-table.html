@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Student Info Table</title>
+</head>
+<body>
+<h1>Student Info Table</h1>
+<form id="stu-info" method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input id="name" type="text" name="name" placeholder="Input your name"/></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input id="age" type="number" name="age" placeholder="range 0 - 120"/></td>
+        </tr>
+    </table>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+</body>
+<script>
+    /**
+     * 添加一个检查年龄范围的函数，超出范围则会弹窗并且重置年龄
+     */
+    document.getElementById('age').addEventListener('blur', () => {
+        let age_value = document.getElementById('age').value;
+        if (age_value < 0 || age_value > 120) {
+            alert('Age out of range 0 - 120');
+            document.getElementById('age').value = 0;
+        }
+    });
+
+    /**
+     * 拦截表单提交事件，并进行检查
+     */
+    document.getElementById('stu-info').addEventListener('submit', (event) => {
+        event.preventDefault(); //拦截默认事件
+
+        //检查表单内值是否为空
+        let null_elem = Array.from(document.getElementsByTagName('input')).filter((elem) => {
+            return elem.value === '';
+        });
+
+        if (null_elem.length !== 0) {
+            let msg = 'Please input ';
+            null_elem.forEach((elem) => {
+                msg += elem.id + ' ';
+            });
+            alert(msg);
+        } else {
+            document.getElementById('stu-info').submit();
+        }
+    })
+</script>
+</html>
