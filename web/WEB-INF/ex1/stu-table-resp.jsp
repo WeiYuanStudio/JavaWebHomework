@@ -10,6 +10,10 @@
 <head>
     <title>Receive form success</title>
     <style>
+        body {
+            font-family: Arial, "Arial Black", "Microsoft YaHei",sans-serif, monospace;
+        }
+
         #main {
             display: flex;
             width: max-content;
@@ -19,13 +23,12 @@
             border-radius: 20px;
             margin: auto;
             margin-top: 20vh;
-            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2)
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+            user-select: none;
         }
 
         #main * {
-            margin: 5px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 5px auto;
         }
     </style>
 </head>
@@ -37,6 +40,10 @@
             <td>Name:</td>
             <td><%= request.getParameter("name")%>
             </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td><%= request.getParameter("gender")%></td>
         </tr>
         <tr>
             <td>Age:</td>

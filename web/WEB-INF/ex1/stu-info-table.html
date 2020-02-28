@@ -2,6 +2,10 @@
 <head>
     <title>Student Info Table</title>
     <style>
+        body {
+            font-family: Arial, "Arial Black", "Microsoft YaHei", sans-serif, monospace;
+        }
+
         #main {
             display: flex;
             width: max-content;
@@ -11,13 +15,31 @@
             border-radius: 20px;
             margin: auto;
             margin-top: 20vh;
-            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2)
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+            user-select: none;
         }
 
         #main * {
-            margin: 5px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 5px auto;
+        }
+
+        input {
+            padding: 2px 8px;
+            border: solid 1px black;
+            border-radius: 4px;
+        }
+
+        .btn-set {
+            display: flex;
+            flex-flow: row;
+        }
+
+        .btn-set button {
+            padding: 4px 8px;
+            border: solid 1px black;
+            border-radius: 4px;
+            margin: auto;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -27,16 +49,25 @@
     <form id="stu-info" method="post">
         <table>
             <tr>
-                <td>Name</td>
+                <td>Name:</td>
                 <td><input id="name" type="text" name="name" placeholder="Input your name"/></td>
             </tr>
             <tr>
-                <td>Age</td>
+                <td>Gender:</td>
+                <td>
+                    <span>Male</span><input type="radio" name="gender" value="male" checked="defalut">
+                    <span>Female</span><input type="radio" name="gender" value="female">
+                </td>
+            </tr>
+            <tr>
+                <td>Age:</td>
                 <td><input id="age" type="number" name="age" placeholder="range 0 - 120"/></td>
             </tr>
         </table>
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <div class="btn-set">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
     </form>
 </div>
 </body>
@@ -45,10 +76,10 @@
      * 添加一个检查年龄范围的函数，超出范围则会弹窗并且重置年龄
      */
     document.getElementById('age').addEventListener('blur', () => {
-        let age_value = document.getElementById('age').value;
-        if (age_value < 0 || age_value > 120) {
-            alert('Age out of range 0 - 120');
-            document.getElementById('age').value = 0;
+        let age_value = document.getElementById('age').value; //获取年龄数值
+        if (age_value < 0 || age_value > 120) { //检查年龄范围
+            alert('Age out of range 0 - 120'); //弹窗
+            document.getElementById('age').value = 0; //重置年龄
         }
     });
 
@@ -56,21 +87,22 @@
      * 拦截表单提交事件，并进行检查
      */
     document.getElementById('stu-info').addEventListener('submit', (event) => {
-        event.preventDefault(); //拦截默认事件
+        event.preventDefault(); //拦截submit默认事件
 
         //检查表单内值是否为空
-        let null_elem = Array.from(document.getElementsByTagName('input')).filter((elem) => {
-            return elem.value === '';
+        let null_elem = Array.from(document.getElementsByTagName('input')).filter((elem) => { //获取所有input元素，lambda函数通过filter
+            return elem.value === ''; //检查表单值是否为空
         });
 
-        if (null_elem.length !== 0) {
-            let msg = 'Please input ';
-            null_elem.forEach((elem) => {
-                msg += elem.id + ' ';
+        if (null_elem.length !== 0) { //检查空元素array长度是否为0
+            let msg = 'Please input '; //提示消息头
+            null_elem.forEach((elem) => { //对所有空元素执行lambda函数
+                elem.style = 'border-color: red;'; //设置元素边框为红
+                msg += elem.id + ' '; //将该元素id加入提示消息
             });
-            alert(msg);
+            alert(msg); //完成所有空元素遍历后弹出消息
         } else {
-            document.getElementById('stu-info').submit();
+            document.getElementById('stu-info').submit(); //如果没有空元素，则提交表单
         }
     })
 </script>
