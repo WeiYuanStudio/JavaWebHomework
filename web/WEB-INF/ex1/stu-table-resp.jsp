@@ -11,7 +11,7 @@
     <title>Receive form success</title>
     <style>
         body {
-            font-family: Arial, "Arial Black", "Microsoft YaHei",sans-serif, monospace;
+            font-family: Arial, "Arial Black", "Microsoft YaHei", sans-serif, monospace;
         }
 
         #main {
@@ -42,8 +42,14 @@
             </td>
         </tr>
         <tr>
+            <td>ID:</td>
+            <td><%= request.getParameter("id")%>
+            </td>
+        </tr>
+        <tr>
             <td>Gender:</td>
-            <td><%= request.getParameter("gender")%></td>
+            <td><%= request.getParameter("gender")%>
+            </td>
         </tr>
         <tr>
             <td>Age:</td>
