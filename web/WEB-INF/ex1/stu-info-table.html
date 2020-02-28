@@ -1,23 +1,44 @@
 <html>
 <head>
     <title>Student Info Table</title>
+    <style>
+        #main {
+            display: flex;
+            width: max-content;
+            flex-flow: column;
+            padding: 50px;
+            border: solid 1px;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 20vh;
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2)
+        }
+
+        #main * {
+            margin: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-<h1>Student Info Table</h1>
-<form id="stu-info" method="post">
-    <table>
-        <tr>
-            <td>Name</td>
-            <td><input id="name" type="text" name="name" placeholder="Input your name"/></td>
-        </tr>
-        <tr>
-            <td>Age</td>
-            <td><input id="age" type="number" name="age" placeholder="range 0 - 120"/></td>
-        </tr>
-    </table>
-    <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
-</form>
+<div id="main">
+    <h1>Student Info Table</h1>
+    <form id="stu-info" method="post">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input id="name" type="text" name="name" placeholder="Input your name"/></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input id="age" type="number" name="age" placeholder="range 0 - 120"/></td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>
 </body>
 <script>
     /**
