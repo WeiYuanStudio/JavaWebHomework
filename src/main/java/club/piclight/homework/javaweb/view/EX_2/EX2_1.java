@@ -1,4 +1,4 @@
-package club.piclight.homework.javaweb.view;
+package club.piclight.homework.javaweb.view.EX_2;
 
 import club.piclight.homework.javaweb.IndexUtil.IndexMark;
 
