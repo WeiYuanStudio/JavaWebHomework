@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Student Info Table</title>
+    <style>
+        body {
+            font-family: Arial, "Arial Black", "Microsoft YaHei", sans-serif, monospace;
+        }
+
+        #main {
+            display: flex;
+            width: max-content;
+            flex-flow: column;
+            padding: 50px;
+            border: solid 1px;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 20vh;
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+            user-select: none;
+        }
+
+        #main * {
+            margin: 5px auto;
+        }
+
+        input {
+            padding: 2px 8px;
+            border: solid 1px black;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 4px 8px;
+            border: solid 1px black;
+            border-radius: 4px;
+            margin: auto;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        #form {
+            display: flex;
+            flex-flow: column;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <h1>Login Form</h1>
+    <form id="form" method="post">
+        <label>
+            username:
+            <input type="text" name="username" id="username">
+        </label>
+        <label>
+            password:
+            <input type="password" name="password" id="password">
+        </label>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+<script>
+    /**
+     * 检查密码长度，少于6位红，满足条件变蓝
+     */
+    document.getElementById('password').addEventListener('input', () => {
+        if (document.getElementById('password').value.length < 6) {
+            document.getElementById('password').setAttribute('style', 'border-color: red;');
+        } else {
+            document.getElementById('password').setAttribute('style', 'border-color: aqua;');
+        }
+    });
+
+    /**
+     * 拦截表单提交事件，并进行检查
+     */
+    document.getElementById('form').addEventListener('submit', (event) => {
+        event.preventDefault(); //拦截submit默认事件
+
+        //检查表单内值是否为空
+        let null_elem = Array.from(document.getElementsByTagName('input')).filter((elem) => { //获取所有input元素，lambda函数通过filter
+            return elem.value === ''; //检查表单值是否为空
+        });
+
+        console.log(null_elem);
+
+        if (null_elem.length !== 0) { //检查空元素array长度是否为0
+            let msg = 'Please input '; //提示消息头
+            null_elem.forEach((elem) => { //对所有空元素执行lambda函数
+                elem.style = 'border-color: red;'; //设置元素边框为红
+                msg += elem.id + ' '; //将该元素id加入提示消息
+            });
+            alert(msg); //完成所有空元素遍历后弹出消息
+        } else {
+            document.getElementById('form').submit(); //如果没有空元素，则提交表单
+        }
+    })
+</script>
+</html>
