@@ -12,3 +12,14 @@ Java web 课程作业仓库
 | report | 实验报告                    |
 | web    | 网页资源 HTML CSS JS JSP... |
 | src    | java 代码                   |
+
+猜数字表
+
+```sql
+CREATE TABLE `guess_number` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `j_session` varchar(50) NOT NULL,
+  `number` smallint NOT NULL,
+  PRIMARY KEY (`id`)
+);
+```
