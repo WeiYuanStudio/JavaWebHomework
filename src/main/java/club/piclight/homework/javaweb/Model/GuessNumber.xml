@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.piclight.homework.javaweb.Model">
+    <insert id="addRecord" parameterType="club.piclight.homework.javaweb.Model.GuessNumber">
+        insert into guess_number (j_session, number)
+        value (#{jSession}, #{number})
+    </insert>
+    <select id="getRecord" parameterType="String" resultType="club.piclight.homework.javaweb.Model.GuessNumber">
+        SELECT j_session, number FROM guess_number WHERE j_session = #{jSession}
+    </select>
+    <update id="updateRecord" parameterType="club.piclight.homework.javaweb.Model.GuessNumber">
+        UPDATE guess_number SET number = #{number} WHERE j_session = #{jSession}
+    </update>
+</mapper>
