@@ -48,8 +48,8 @@
 <body>
 <div id="main">
     <h1>Captcha View</h1>
-    <img src="/ex3/captcha.do" alt="captcha img">
-    <form id="form" method="post" action="/ex3/captcha.do">
+    <img src="./captcha.do" alt="captcha img" id="captcha-img">
+    <form id="form" method="post" action="./captcha.do">
         <label>
             Captcha Code:
             <input type="text" name="captcha" id="captcha">
@@ -58,7 +58,10 @@
     </form>
 </div>
 <script>
-
+document.getElementById('captcha-img').onclick = function() {
+    console.log('test');
+    document.getElementById('captcha-img').setAttribute('src', './captcha.do?r' + Math.random())
+}
 </script>
 </body>
 </html>
