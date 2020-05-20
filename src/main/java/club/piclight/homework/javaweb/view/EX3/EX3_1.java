@@ -2,7 +2,6 @@ package club.piclight.homework.javaweb.view.EX3;
 
 import club.piclight.homework.javaweb.DB.GuessNumberRepository;
 import club.piclight.homework.javaweb.IndexUtil.IndexMark;
-import club.piclight.homework.javaweb.Model.GuessNumber;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 @IndexMark(experimentID = 3, title = "猜数字", url = "./ex3/guess-number.do")
 @WebServlet(urlPatterns = {"/ex3/guess-number.do"})
