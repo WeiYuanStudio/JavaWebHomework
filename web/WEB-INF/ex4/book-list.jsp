@@ -90,7 +90,6 @@
                     <form action="./book-list.do" method="post">
                         <input type="text" name="id" value="${book.getId()}" style="display: none;">
                         <input type="text" name="actionType" value="remove" style="display: none;">
-<%--                        <button type="submit">-</button>--%>
                         <c:if test="${book.getNum() > 1}">
                             <button type="submit">-</button>
                         </c:if>
